@@ -12,14 +12,24 @@
  *= require_tree .
  */
 
- .header {
+a {
+  text-decoration: none;
+  font-size: bold;
+  color: gray;
+}
+
+.field_with_errors {
+  
+}
+
+.header {
   margin-bottom: 20px;
   padding-bottom: 5px;
   border-bottom: solid 1px gray;
- }
+}
 
- .footer {
+.footer {
   margin-top: 20px;
   padding-top: 5px;
   border-top: solid 1px gray;
- }
+}

@@ -3,7 +3,8 @@
   <%= link_to "Home", controller: "welcome" %>
 </div>
 
-<%= form_for :post, url: posts_path do |f| %>
+<%= form_for :post, url: post_path(@post.id), method: :patch do |f| %>
+
   <% if @post.errors.any? %>
   <div id="errorExplanation">
     <h2><%= pluralize(@post.errors.count, "error") %> prohibited
@@ -29,6 +30,7 @@
   <p>
     <%= f.submit %>
   </p>
+
 <% end %>
 
 <div class="footer">
