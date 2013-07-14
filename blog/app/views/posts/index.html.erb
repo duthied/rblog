@@ -1,0 +1,14 @@
+<div class="header">
+  <h3>Post Listing</h3>
+  <%= link_to "Create new post", new_post_path %>
+</div>
+
+<% @posts.each do |post| %>
+  <div>
+    <strong><%= post.title %></strong> - <%= post.text %>
+  </div>
+<% end %>
+
+<div class="footer">
+  &laquo;<%= link_to "Back", controller: "welcome" %>
+</div>

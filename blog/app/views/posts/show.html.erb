@@ -1,0 +1,12 @@
+<div class="header">
+  <h3>Title: <%= @post.title %></h3>
+</div>
+
+<h3>Text:</h3> 
+<div>
+  <%= @post.text %>
+</div>
+
+<div class="footer">
+  &laquo;<%= link_to "Back", posts_path %>
+</div>
