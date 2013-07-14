@@ -2,14 +2,45 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.page_actions {
+}
+
 .post_listing_item {
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+  padding-top: 5px;
+  width: 600px;
 }
 
-.comments {
-  margin-left: 10px;
+.post_item_header {
+  background: grey;
+  border-bottom: 1px solid gray;
+  -moz-border-radius: 10px 10px 0 0;
+  -webkit-border-radius: 10px 10px 0 0;
+  padding: 5px;
 }
 
-.comment_body {
-  margin-left: 10px;
+.post_title {
+  font-size: bold;
+  padding: 0 5px;
+}
+
+.post_title a {
+  color: white;
+}
+
+.post_body {
+  padding: 10px 5px;
+  border-right: 1px solid gray;
+  border-left: 1px solid gray;
+}
+
+.comment_count {
+  font-size: 0.75em;
+  text-align:right;
+}
+
+.post_item_footer {
+  border-top: 1px solid gray;
+  padding: 5px;
+  text-align: right;
 }
