@@ -9,7 +9,7 @@
       <strong><%= post.title %></strong> - <%= post.text %>
     </span>
     <span>
-      <%= link_to "Show", post_path(post.id) %> | <%= link_to "Edit", edit_post_path(post) %>
+      <%= link_to "Show", post_path(post.id) %> | <%= link_to "Edit", edit_post_path(post) %> | <%= link_to 'Delete', post_path(post.id), method: :delete, data: { confirm: 'Are you sure?' } %>
     </span>
   </div>
 <% end %>

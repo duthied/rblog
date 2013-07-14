@@ -1,6 +1,6 @@
 <div class="header">
   <h2>New Post</h2>
-  <%= link_to "Home", controller: "welcome" %>
+  <%= link_to "Home", controller: "welcome" %> | <%= link_to "Post Listing", posts_path %>
 </div>
 
 <%= form_for :post, url: post_path(@post.id), method: :patch do |f| %>
@@ -32,7 +32,3 @@
   </p>
 
 <% end %>
-
-<div class="footer">
-  &laquo;<%= link_to "Back", posts_path %>
-</div>
