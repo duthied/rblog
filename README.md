@@ -3,7 +3,10 @@ rblog
 
 Playing with the Ruby on Rails Blog Example
 
+### single post screen-cap
 ![single post](post.png "single post")
+
+### post listing screen-cap
 ![post listing](listing.png "post listing")
 
 TODO:
