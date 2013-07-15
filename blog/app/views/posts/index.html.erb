@@ -1,29 +1,43 @@
-<div class="header">
-  <h2>Post Listing</h2>
-  
-  <span class="page_actions">
-    <%= link_to "Home", controller: "welcome" %> | <%= link_to "Create new post", new_post_path %>
-  <span>
 
-</div>
+<div class="container">
 
-<% @posts.each do |post| %>
-  <div class="post_listing_item">
-    
-    <div class="post_item_header">
-      <span class="post_title"><%= link_to post.title.upcase, post_path(post.id) %></span>
-    </div>
-
-    <div class="post_body">
-      <%= post.text %>
-      
-      <div class="comment_count">
-        <%= post.comments.length %> comments
-      </div>
-    </div>
-
-    <div class="post_item_footer">
-      <%= link_to "Edit", edit_post_path(post) %> | <%= link_to 'Delete', post_path(post.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+  <div class="navbar">
+    <div class="navbar-inner">
+      <a class="brand" href="#">BLOG</a>
+      <ul class="nav">
+        <li class=""><%= link_to "Welcome", controller: "welcome" %></li>
+        <li class="active"><%= link_to "Blog Home", posts_path %></li>
+        <li class=""><%= link_to "Create New Post", new_post_path %></li>
+      </ul>
     </div>
   </div>
-<% end %>
+
+  <div class="container">
+
+    <% @posts.each do |post| %>
+      <div class="row">
+        <div class="span2">
+          <p class="text-right">
+            <%= link_to "Edit", edit_post_path(post), class: "btn btn-mini" %>
+            <%= link_to 'Delete', post_path(post.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-mini" %>
+          </p>
+        </div>
+
+        <div class="span10">
+          <p class="lead">
+            <%= link_to post.title.upcase, post_path(post.id) %>
+          </p>
+
+          <%= post.text %>
+
+          <blockquote>
+            <small><%= post.comments.length %> comments</small>
+          </blockquote>
+        </div>
+
+      </div>
+    <% end %>
+
+  </div>
+
+</div>

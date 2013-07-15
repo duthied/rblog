@@ -12,28 +12,14 @@
  *= require_tree .
  */
 
-body {
-  font-family: arial;
+@import "bootstrap/bootstrap";
+
+body { 
+  padding-left: 10px; 
 }
 
-a {
-  text-decoration: none;
-  font-size: bold;
-  color: gray;
-}
+@import "bootstrap/responsive";
 
 .field_with_errors {
 
-}
-
-.header {
-  margin-bottom: 20px;
-  padding-bottom: 5px;
-  border-bottom: solid 1px gray;
-}
-
-.footer {
-  margin-top: 20px;
-  padding-top: 5px;
-  border-top: solid 1px gray;
 }

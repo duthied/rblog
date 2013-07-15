@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   
-  http_basic_authenticate_with name: "duthied", password: "Mark2me", only: :destroy
+  # http_basic_authenticate_with name: "duthied", password: "Mark2me", only: :destroy
 
   #PUBLIC METHODS
   def create

@@ -1,38 +1,71 @@
-<div class="header">
-  <h2>New Post</h2>
-  <%= link_to "Home", controller: "welcome" %> | <%= link_to "Post Listing", posts_path %>
-</div>
-
-<%= form_for :post, url: posts_path do |f| %>
+<div class="container">
   
-  <% #shouldn't have to do this %>
-  <% if @post %>
+  <div class="navbar">
+    <div class="navbar-inner">
+      <a class="brand" href="#">BLOG</a>
+      <ul class="nav">
+        <li class=""><%= link_to "Welcome", controller: "welcome" %></li>
+        <li class=""><%= link_to "Blog Home", posts_path %></li>
+        <li class="active"><%= link_to "Create New Post", new_post_path %></li>
+      </ul>
+    </div>
+  </div>
 
-    <% if @post.errors.any? %>
-      <div id="errorExplanation">
-        <h2><%= pluralize(@post.errors.count, "error") %> prohibited
-          this post from being saved:</h2>
-        <ul>
-        <% @post.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
+  <div class="container">
+    <div class="row">
+      <div class="span2"></div>
+      
+      <div class="span8">
+        
+        <%= form_for :post, url: posts_path do |f| %>
+  
+          <% #shouldn't have to do this %>
+          <% if @post %>
+
+            <% if @post.errors.any? %>
+              <div id="errorExplanation">
+                <h2><%= pluralize(@post.errors.count, "error") %> prohibited
+                  this post from being saved:</h2>
+                <ul>
+                <% @post.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+                </ul>
+              </div>
+              <% end %>
+
+          <% end %>
+
+          <fieldset>
+            <legend>Create a post</legend>
+
+            <div class="control-group">
+              <label class="control-label"><%= f.label :title %></label>
+              <div class="controls">
+                <%= f.text_field :title, :class => 'span8' %>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label class="control-label"><%= f.label :text %></label>
+              <div class="controls">
+                <%= f.text_area :text, :rows => '5', :class => 'span8' %></span>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <div class="controls">
+                <%= f.submit 'create', :class => 'btn btn-primary' %>
+              </div>
+            </div>  
+          </fieldset>
+
         <% end %>
-        </ul>
+
       </div>
-      <% end %>
 
-  <% end %>
+      <div class="span2"></div>
+    </div>
+  </div>
 
-  <p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </p>
- 
-  <p>
-    <%= f.label :text %><br>
-    <%= f.text_area :text %>
-  </p>
- 
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+</div>

@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   
-  http_basic_authenticate_with name: "duthied", password: "Mark2me", except: [:index, :show]
+  # http_basic_authenticate_with name: "duthied", password: "Mark2me", except: [:index, :show]
  
   #PUBLIC METHODS
   def index

@@ -1,5 +1,29 @@
-<div class="header">
-  <h3>Hello rails!</h3>
-</div>
+<div class="container">
 
-<%= link_to "teh Blog", controller: "posts"  %>
+  <div class="navbar">
+    <div class="navbar-inner">
+      <a class="brand" href="#">Rails Experiment</a>
+      <ul class="nav">
+        <li class="active"><%= link_to "BLOG", controller: "posts"  %></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="span12">
+        <div class="span2"></div>
+
+        <div class="span8">
+          <div class="well well-large">
+            <p>This is just a place to play around with Ruby on Rails.</p>
+            <p>The main app here is a 'blog', start <%= link_to "here", controller: "posts"  %></p>
+          </div>
+        </div>
+
+        <div class="span2"></div>
+
+    </div>
+  </div>
+
+</div>

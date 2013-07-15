@@ -1,34 +1,78 @@
-<div class="header">
-  <h2>New Post</h2>
-  <%= link_to "Home", controller: "welcome" %> | <%= link_to "Post Listing", posts_path %>
-</div>
+<div class="container">
 
-<%= form_for :post, url: post_path(@post.id), method: :patch do |f| %>
-
-  <% if @post.errors.any? %>
-  <div id="errorExplanation">
-    <h2><%= pluralize(@post.errors.count, "error") %> prohibited
-      this post from being saved:</h2>
-    <ul>
-    <% @post.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
+  <div class="navbar">
+    <div class="navbar-inner">
+      <a class="brand" href="#">BLOG</a>
+      <ul class="nav">
+        <li class=""><%= link_to "Welcome", controller: "welcome" %></li>
+        <li class=""><%= link_to "Blog Home", posts_path %></li>
+        <li class=""><%= link_to "Create New Post", new_post_path %></li>
+      </ul>
+    </div>
   </div>
-  <% end %>
 
-  <p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </p>
- 
-  <p>
-    <%= f.label :text %><br>
-    <%= f.text_area :text %>
-  </p>
- 
-  <p>
-    <%= f.submit %>
-  </p>
+  <div class="container">
 
-<% end %>
+    <div class="row">
+
+      <div class="span2"></div>
+
+      <div class="span8">
+        <ul class="breadcrumb">
+          <li class=""><%= link_to "< back to post listing", posts_path %></li>
+        </ul>
+      </div>
+
+      <div class="span2"></div>
+    </div>
+
+    <div class="row">
+      <div class="span2"></div>
+      
+      <div class="span8">
+        <%= form_for :post, url: post_path(@post.id), method: :patch do |f| %>
+
+          <% if @post.errors.any? %>
+          <div id="errorExplanation">
+            <h2><%= pluralize(@post.errors.count, "error") %> prohibited
+              this post from being saved:</h2>
+            <ul>
+            <% @post.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+            </ul>
+          </div>
+          <% end %>
+
+          <fieldset>
+            <legend>Edit your post</legend>
+
+            <div class="control-group">
+              <label class="control-label"><%= f.label :title %></label>
+              <div class="controls">
+                <%= f.text_field :title, :class => 'span8' %>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label class="control-label"><%= f.label :text %></label>
+              <div class="controls">
+                <%= f.text_area :text, :rows => '5', :class => 'span8' %></span>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <div class="controls">
+                <%= f.submit 'save', :class => 'btn btn-primary' %>
+              </div>
+            </div>  
+          </fieldset>
+
+        <% end %>
+      </div>
+
+      <div class="span2"></div>
+    </div>
+  </div>
+
+</div>
