@@ -1,7 +1,7 @@
 rblog
 =====
 
-### Playing with the [Ruby on Rails Blog Example](http://guides.rubyonrails.org/getting_started.html/ "getting started").
+### Playing with the [Ruby on Rails Blog Example](http://guides.rubyonrails.org/getting_started.html "getting started").
 
 ##### single post screen-cap
 - - -
