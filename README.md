@@ -1,15 +1,15 @@
 rblog
 =====
 
-Playing with the Ruby on Rails Blog Example
+### Playing with the Ruby on Rails Blog Example
 
-### single post screen-cap
+##### single post screen-cap
 ![single post](post.png "single post")
 
-### post listing screen-cap
+##### post listing screen-cap
 ![post listing](listing.png "post listing")
 
-TODO:
+##### TODO:
 
 * replace tutorial db with something I haven't used before, maybe Postgres
 * spice up the styling (done, used bootstrap-sass - can rubi-fy it a bit more)
