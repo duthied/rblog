@@ -1,0 +1,15 @@
+<div class="comments">
+  <h3>Comments:</h3>
+
+  <% if @post.comments.length > 0 %>
+    <% @post.comments.each do |comment| %>
+      <span><%= comment.commenter %></span> said: <span><%= comment.body %></span>
+      <br/><%= link_to 'Delete Comment', [comment.post, comment],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+    <% end %>
+  <% else %>
+    <span>None yet!</span>
+  <% end %>
+
+</div>
