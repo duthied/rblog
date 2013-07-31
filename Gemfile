@@ -1,10 +1,19 @@
 source 'https://rubygems.org'
+ruby '2.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+
+# Rspec and testing related helpers
+gem 'rspec-rails', '2.13.1'
+gem 'capybara', '2.1.0'
+gem 'guard-rspec', '2.5.0'
+gem 'spork-rails', github: 'sporkrb/spork-rails'
+gem 'guard-spork', '1.5.0'
+gem 'childprocess', '0.3.6'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -31,18 +40,6 @@ group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
 
 # bootstrap
 gem 'bootstrap-sass', '~> 2.3.2.0'
