@@ -1,7 +1,5 @@
 class CommentsController < ApplicationController
   
-  # http_basic_authenticate_with name: "duthied", password: "Mark2me", only: :destroy
-
   #PUBLIC METHODS
   def create
     @post = Post.find(params[:post_id])
