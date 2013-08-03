@@ -1,9 +1,11 @@
+# config/routes.rb
 Blog::Application.routes.draw do
   #get "welcome/index"
   
-  resources :posts
-  resources :comments
-
+  resources :posts do
+    resources :comments
+  end
+  
   root 'welcome#index'
 
 end
