@@ -17,6 +17,7 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update(params[:post].permit(:title, :text))
+      flash.now[:notice] = "Post updated!"
       redirect_to @post
     else
       render 'edit'
@@ -26,6 +27,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
+      flash.now[:notice] = "Post created!"
       redirect_to @post
     else
       respond_to do |format|
@@ -40,7 +42,10 @@ class PostsController < ApplicationController
     @post.destroy
 
     respond_to do |format|
-      format.html { redirect_to posts_path }
+      format.html { 
+        flash.now[:notice] = "Post removed!"
+        redirect_to posts_path 
+      }
       format.json { render 'destroy' }
     end
   end

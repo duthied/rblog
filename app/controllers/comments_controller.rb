@@ -16,7 +16,10 @@ class CommentsController < ApplicationController
     # redirect_to post_path(@post)
     if @comment.save
       respond_to do |format|
-        format.html { redirect_to post_path(@post) }
+        format.html { 
+          flash.now[:notice] = "Comment created!"
+          redirect_to post_path(@post) 
+        }
         format.json { render 'show' }
       end
     else
@@ -34,7 +37,10 @@ class CommentsController < ApplicationController
     @comment.destroy
     
     respond_to do |format|
-      format.html { redirect_to post_path(@post) }
+      format.html { 
+        flash.now[:notice] = "Comment removed!"
+        redirect_to post_path(@post) 
+      }
       format.json { render 'destroy' }
     end
   end

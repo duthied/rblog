@@ -17,7 +17,7 @@ gem 'childprocess', '0.3.6'
 gem "factory_girl_rails", "~> 4.0"
 gem 'faker'
 
-gem "debugger", "~> 1.6.1"
+gem 'debugger', '~> 1.6.1'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -52,4 +52,9 @@ end
 # bootstrap
 gem 'bootstrap-sass', '~> 2.3.2.0'
 
-gem "thin"
+# thin web server
+gem 'thin'
+
+#auth via declarative_authorization & devise
+gem 'declarative_authorization'
+gem 'devise'
