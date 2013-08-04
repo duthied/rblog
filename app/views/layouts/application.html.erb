@@ -8,9 +8,14 @@
 </head>
 <body>
 
-<% flash.each do |name, msg| -%>
-  <%= content_tag :div, msg, class: name %>
-<% end -%>
+<% [:notice, :error, :alert].each do |level| %>
+  <% unless flash[level].blank? %>
+    <div class="alert-message <%= flash_class(level) %>">
+      <a class="close" href="#">×</a>
+      <%= content_tag :p, flash[level] %>
+    </div>
+  <% end %>
+<% end %>
 
 <%= yield %>
 

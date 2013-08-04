@@ -17,7 +17,7 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update(params[:post].permit(:title, :text))
-      flash.now[:notice] = "Post updated!"
+      flash[:notice] = "Post updated!"
       redirect_to @post
     else
       render 'edit'
@@ -43,7 +43,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       format.html { 
-        flash.now[:notice] = "Post removed!"
+        flash[:notice] = "Post removed!"
         redirect_to posts_path 
       }
       format.json { render 'destroy' }

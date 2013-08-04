@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
     if @comment.save
       respond_to do |format|
         format.html { 
-          flash.now[:notice] = "Comment created!"
+          flash[:notice] = "Comment created!"
           redirect_to post_path(@post) 
         }
         format.json { render 'show' }
@@ -38,7 +38,7 @@ class CommentsController < ApplicationController
     
     respond_to do |format|
       format.html { 
-        flash.now[:notice] = "Comment removed!"
+        flash[:notice] = "Comment removed!"
         redirect_to post_path(@post) 
       }
       format.json { render 'destroy' }

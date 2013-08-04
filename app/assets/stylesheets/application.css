@@ -16,10 +16,21 @@
 
 body { 
   padding-left: 10px; 
+  padding-right: 10px;
 }
 
 @import "bootstrap/responsive";
 
 .field_with_errors {
+}
 
+.alert-message {
+  background-color: #F6CECE;
+  text-align: center;
+  font-weight: bold;
+  z-index: 1000;
+}
+
+.alert-message .close {
+  display: none;
 }
