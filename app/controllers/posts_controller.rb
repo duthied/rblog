@@ -1,6 +1,7 @@
 # /app/controllers/posts_controller.rb
 class PostsController < ApplicationController
-  
+  skip_before_action :verify_authenticity_token
+
   #PUBLIC METHODS
   def index
     @posts = Post.all
@@ -23,13 +24,14 @@ class PostsController < ApplicationController
   end
 
   def create
-    # render text: params[:post].inspect
     @post = Post.new(post_params)
-    
     if @post.save
       redirect_to @post
     else
-      render 'new'
+      respond_to do |format|
+        format.html { render 'new' }
+        format.json { render 'create', :status => :bad_request }
+      end
     end
   end
 
@@ -37,7 +39,10 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.destroy
 
-    redirect_to posts_path
+    respond_to do |format|
+      format.html { redirect_to posts_path }
+      format.json { render 'destroy' }
+    end
   end
 
   def show
