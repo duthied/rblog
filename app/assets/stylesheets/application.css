@@ -28,7 +28,11 @@ body {
   background-color: #F6CECE;
   text-align: center;
   font-weight: bold;
-  z-index: 1000;
+}
+
+.error {
+  background-color: red;
+  color: white;
 }
 
 .alert-message .close {
