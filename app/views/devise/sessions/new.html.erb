@@ -1,17 +1,60 @@
-<h2>Sign in</h2>
+<div class="container">
 
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+  <div class="navbar">
+    <div class="navbar-inner">
+      <a class="brand" href="#">BLOG</a>
+      <ul class="nav">
+        <li class=""><%= link_to "Blog Home", posts_path %></li>
+        <li class=""><%= link_to "Create New Post", new_post_path %></li>
+        <li class="active"><%= link_to "Login", new_user_session_path %></li>
+      </ul>
+    </div>
+  </div>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+  <div class="container">
 
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%>
+    <div class="row">
+      <div class="span2"></div>
+      <div class="span8">
+        <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
 
-  <div><%= f.submit "Sign in" %></div>
-<% end %>
+          <legend>Sign in</legend>
 
-<%= render "devise/shared/links" %>
+          <fieldset>
+            <div class="control-group">
+              <label class="control-label"><%= f.label :email %></label>
+              <div class="controls">
+                <%= f.email_field :email, :autofocus => true, :class => 'span8' %>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label class="control-label"><%= f.label :password %></label>
+              <div class="controls">
+                <%= f.password_field :password, :class => 'span8' %>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <div class="controls">
+                <% if devise_mapping.rememberable? -%>
+                  <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+                <% end -%>
+              </div>
+            </div>
+            
+            <div class="control-group">
+              <div class="controls">
+                <%= f.submit 'Sign in', :class => 'btn btn-primary' %>
+              </div>
+            </div>
+          </fieldset>
+        <% end %>
+
+      <%= render "devise/shared/links" %>
+      </div>
+    </div>
+
+  </div>
+
+</div>

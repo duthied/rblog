@@ -1,0 +1,35 @@
+<div class="container">
+  
+  <div class="navbar navbar-inverse">
+    <div class="navbar-inner">
+      <a class="brand" href="#">BLOG-ADMIN</a>
+      <ul class="nav">
+        <li class=""><%= link_to "Blog Home", posts_path %></li>
+        <li class="active"><%= link_to "Role Listing", roles_path %></li>
+        <li class=""><%= link_to "Login", new_user_session_path %></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="span2"></div>
+      <div class="span8">
+        <ul class="breadcrumb"><li class=""><%= link_to "< back to post listing", roles_path %></li></ul>
+      </div>
+      <div class="span2"></div>
+    </div>
+
+    <div class="row">
+      <div class="span2"></div>
+      <div class="span8">
+        <p class="lead">
+          Description: <%= @role.description %>
+        </p>
+        <p><%= link_to 'Edit', edit_role_path(@role), class: "btn btn-small btn-default" %></p>
+      </div>
+      <div class="span2"></div>
+    </div>
+  </div>
+
+</div>
