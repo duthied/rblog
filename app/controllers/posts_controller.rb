@@ -39,7 +39,10 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.destroy
 
-    redirect_to posts_path
+    respond_to do |format|
+      format.html { redirect_to posts_path }
+      format.json { render 'destroy' }
+    end
   end
 
   def show
