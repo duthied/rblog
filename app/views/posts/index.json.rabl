@@ -11,6 +11,5 @@ child :comments do
 end
 
 node(:links) do |post|
-  {:rel => "self",
-   :href => post_path(post.id)}
+  {:rel => "self", :href => post_path(post.id)}
 end

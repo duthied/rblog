@@ -2,6 +2,11 @@ class CommentsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   #PUBLIC METHODS
+  def show
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.find(params[:id])
+  end
+
   def create
     @post = Post.find(params[:post_id])
     # TODO: throw not found if not found?
@@ -12,7 +17,7 @@ class CommentsController < ApplicationController
     if @comment.save
       respond_to do |format|
         format.html { redirect_to post_path(@post) }
-        format.json { render 'index' }
+        format.json { render 'show' }
       end
     else
       respond_to do |format|
