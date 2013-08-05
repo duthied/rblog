@@ -1,8 +1,11 @@
 # config/routes.rb
 Blog::Application.routes.draw do
+  
+  devise_for :users, :path => 'user'
+  
   resources :roles
-
-  devise_for :users
+  resources :users
+  
   #get "welcome/index"
   
   resources :posts do
