@@ -21,13 +21,36 @@
     </div>
 
     <div class="row">
-      <div class="span2"></div>
+      <div class="span2">
+        <p class="text-right"><%= link_to 'Edit', edit_role_path(@role), class: "btn btn-small" %></p>
+      </div>
       <div class="span8">
         <p class="lead">
           Description: <%= @role.description %>
         </p>
-        <p><%= link_to 'Edit', edit_role_path(@role), class: "btn btn-small btn-default" %></p>
+
+        <div class="row">
+          <div class="span4">
+            <div class="well">
+              <strong>Parents</strong>
+              <div class="controls">
+                <%=  build_role_list('parents_listing') %>
+              </div>
+            </div>
+          </div>
+
+          <div class="span4">
+            <div class="well">
+              <strong>Children</strong>
+              <div class="controls">
+                <%=  build_role_list('children_listing') %>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
+
       <div class="span2"></div>
     </div>
   </div>

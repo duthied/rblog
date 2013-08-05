@@ -37,7 +37,7 @@
           <div id="errorExplanation">
             <h2><%= pluralize(@post.errors.count, "error") %> prohibited
               this post from being saved:</h2>
-            <ul>
+            <ul style="list-style:none;">
             <% @post.errors.full_messages.each do |msg| %>
               <li><%= msg %></li>
             <% end %>
