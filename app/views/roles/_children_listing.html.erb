@@ -1,11 +1,7 @@
 <li style="list-style:none;">
-  <label class="checkbox">
-    <%= 
-      check_box_tag "role[child_ids][]", 
-      current_role.id, @role.children.include?(current_role), 
-      :disabled => true 
-    %>
-    <%= current_role.description %>
-  </label>
+  <% if (@role.children.include?(current_role)) then %>
+    <i class="icon-ok"></i>
+  <% end %>
+  <%= current_role.description %>
 </li>
 <%= the_children %>

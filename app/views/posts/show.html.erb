@@ -25,29 +25,27 @@
     </div>
 
     <div class="row">
-      <div class="span2">
-        <p class="text-right">
-          <%= link_to "Edit", edit_post_path(@post), class: "btn btn-small" %>
-          <%= link_to 'Delete', post_path(@post.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-small" %>
-        </p>
-        
-      </div>
+      <div class="span2"></div>
       
       <div class="span8">
+        <div class="hero-unit">
+          <h1><strong><%= @post.title %></h1>
+          <p class="lead"><%= @post.text %></p>
+          <%= link_to "Edit", edit_post_path(@post), class: "btn btn-small" %>
+          <%= link_to 'Delete', post_path(@post.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-small" %>
 
-        <p class="lead"><strong><%= @post.title %></strong></p>
-        <p class="lead"><%= @post.text %></p>
+          <div class="muted">Comments:</span></div>
 
-        <p>Comments (<%= @post.comments.length %>):</p>
+          <% @post.comments.each do |comment| %>
+            <blockquote>
+              <p><%= comment.body %></p>
+              <small><%= comment.commenter %>
+              <%= link_to 'remove', [comment.post, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
+              </small>
+            </blockquote>
+          <% end %>
 
-        <% @post.comments.each do |comment| %>
-          <blockquote>
-            <p><%= comment.body %></p>
-            <small><%= comment.commenter %>
-            <%= link_to 'remove', [comment.post, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
-            </small>
-          </blockquote>
-        <% end %>
+        </div>
       </div>
 
       <div class="span2"></div>

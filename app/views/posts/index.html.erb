@@ -22,7 +22,7 @@
     </div>
 
     <% @posts.each do |post| %>
-      <div class="row">
+      <div class="row blog-list-item">
         <div class="span2">
           <p class="text-right">
             <%= link_to "Edit", edit_post_path(post), class: "btn btn-mini" %>
@@ -36,9 +36,7 @@
           </p>
 
           <%= post.text %>
-
-          <blockquote><%= post.comments.length %> comments</blockquote>
-          
+          <div class="muted"><span class="badge"><%= post.comments.length %></span> comments</div>
         </div>
 
       </div>
