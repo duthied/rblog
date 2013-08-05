@@ -1,11 +1,11 @@
 <%= form_for(@role) do |f| %>
   <% if @role.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@role.errors.count, "error") %> prohibited this role from being saved:</h2>
+    <div class="alert alert-error" id="error_explanation">
+      <h4><%= pluralize(@role.errors.count, "error") %> prevented this role from being saved:</h4>
 
       <ul style="list-style:none;">
       <% @role.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+        <li><span class="label label-important"><%= msg %></span></li>
       <% end %>
       </ul>
     </div>

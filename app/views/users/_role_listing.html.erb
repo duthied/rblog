@@ -1,0 +1,7 @@
+<li style="list-style:none;">
+  <% if (@user.roles.include?(current_role)) then %>
+    <i class="icon-ok"></i>
+  <% end %>
+  <%= current_role.description %>
+</li>
+<%= the_children %>

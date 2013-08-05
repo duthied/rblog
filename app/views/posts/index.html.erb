@@ -37,7 +37,7 @@
           </p>
 
           <%= post.text %>
-          <div class="muted"><span class="badge"><%= post.comments.length %></span> comments</div>
+          <div class="muted"><%= pluralize(post.comments.length, "comment") %></div>
         </div>
 
       </div>

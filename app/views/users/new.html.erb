@@ -1,5 +1,38 @@
-<h1>New user</h1>
+<div class="container">
+  
+  <div class="navbar navbar-inverse">
+    <div class="navbar-inner">
+      <a class="brand" href="#">BLOG-ADMIN</a>
+      <ul class="nav">
+        <li class=""><%= link_to "Blog Home", posts_path %></li>
+        <li class=""><%= link_to "Role Listing", roles_path %></li>
+        <li class="active"><%= link_to "User Listing", users_path %></li>
+        <li class=""><%= link_to "Login", new_user_session_path %></li>
+      </ul>
+    </div>
+  </div>
 
-<%= render 'form' %>
+  <div class="container">
+    <div class="row">
+      <div class="span2"></div>
+      <div class="span8">
+        <ul class="breadcrumb"><li class=""><%= link_to "< back to user listing", roles_path %></li></ul>
+      </div>
+      <div class="span2"></div>
+    </div>
 
-<%= link_to 'Back', users_path %>
+    <div class="row">
+      <div class="span2"></div>
+      
+      <div class="span8">
+        <fieldset>
+          <legend>Create User</legend>
+          <%= render 'form' %>
+        </fieldset>
+      </div>
+
+      <div class="span2"></div>
+    </div>
+  </div>
+
+</div>

@@ -1,5 +1,13 @@
-<li>
-  <%= check_box_tag "user[role_ids][]", current_role.id, @user.roles.include?(current_role), :disabled => current_role.eql?(@role) %>
-  <%= current_role.description %>
+<li style="list-style:none;">
+
+  <label class="checkbox">
+    <%= 
+      check_box_tag "user[role_ids][]", 
+      current_role.id, 
+      @user.roles.include?(current_role), 
+      :disabled => current_role.eql?(@role) 
+    %>
+    <%= current_role.description %>
+  </label>
 </li>
 <%= the_children %>

@@ -34,7 +34,7 @@
           <%= link_to "Edit", edit_post_path(@post), class: "btn btn-small" %>
           <%= link_to 'Delete', post_path(@post.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-small" %>
 
-          <div class="muted">Comments:</span></div>
+          <div class="muted"><%= pluralize(@post.comments.length, "Comment") %>:</span></div>
 
           <% @post.comments.each do |comment| %>
             <blockquote>

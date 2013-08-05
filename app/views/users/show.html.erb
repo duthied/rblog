@@ -1,4 +1,46 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  
+  <div class="navbar navbar-inverse">
+    <div class="navbar-inner">
+      <a class="brand" href="#">BLOG-ADMIN</a>
+      <ul class="nav">
+        <li class=""><%= link_to "Blog Home", posts_path %></li>
+        <li class=""><%= link_to "Role Listing", roles_path %></li>
+        <li class="active"><%= link_to "User Listing", users_path %></li>
+        <li class=""><%= link_to "Login", new_user_session_path %></li>
+      </ul>
+    </div>
+  </div>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+  <div class="container">
+    <div class="row">
+      <div class="span2"></div>
+      <div class="span8">
+        <ul class="breadcrumb"><li class=""><%= link_to "< back to user listing", users_path %></li></ul>
+      </div>
+      <div class="span2"></div>
+    </div>
+
+    <div class="row">
+      <div class="span2">
+        <p class="text-right"><%= link_to 'Edit', edit_user_path(@user), class: "btn btn-small" %></p>
+      </div>
+      <div class="span8">
+        <p class="lead">
+          Email: <%= @user.email %>
+        </p>
+
+        <div class="well">
+          <strong>Parents</strong>
+          <div class="controls">
+            <%=  build_role_list('/users/role_listing') %>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="span2"></div>
+    </div>
+  </div>
+
+</div>
