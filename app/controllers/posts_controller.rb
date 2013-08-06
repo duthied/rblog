@@ -1,7 +1,10 @@
 # /app/controllers/posts_controller.rb
 class PostsController < ApplicationController
   skip_before_action :verify_authenticity_token
-
+  before_filter :authenticate_user!
+  
+  # check_authorization
+  
   #PUBLIC METHODS
   # GET /posts
   # GET /posts.json

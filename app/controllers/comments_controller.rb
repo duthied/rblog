@@ -1,6 +1,9 @@
 class CommentsController < ApplicationController
   skip_before_action :verify_authenticity_token
-
+  before_filter :authenticate_user!
+  
+  # check_authorization
+  
   #PUBLIC METHODS
 
   # GET /posts/1/comments/1

@@ -1,6 +1,8 @@
 # config/routes.rb
 Blog::Application.routes.draw do
   
+  resources :role_permissions
+
   devise_for :users, :path => 'user'
   
   resources :roles
