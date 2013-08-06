@@ -23,7 +23,9 @@
 
     <div class="row">
       <div class="span2">
-        <p class="text-right"><%= link_to 'Edit', edit_role_path(@role), class: "btn btn-small" %></p>
+        <% if can? :update, @role %>
+          <p class="text-right"><%= link_to 'Edit', edit_role_path(@role), class: "btn btn-small" %></p>
+        <% end %>
       </div>
       <div class="span8">
         <p class="lead">

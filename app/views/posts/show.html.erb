@@ -21,16 +21,19 @@
         <div class="hero-unit">
           <h1><strong><%= @post.title %></h1>
           <p class="lead"><%= @post.text %></p>
-          <%= link_to "Edit", edit_post_path(@post), class: "btn btn-small" %>
-          <%= link_to 'Delete', post_path(@post.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-small" %>
-
+          <% if can? :update, @post %>
+            <%= link_to "Edit", edit_post_path(@post), class: "btn btn-small" %>
+          <% end %>
+          <% if can? :destroy, @post %>
+            <%= link_to 'Delete', post_path(@post.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-small" %>
+          <% end %>
           <div class="muted"><%= pluralize(@post.comments.length, "Comment") %>:</span></div>
 
           <% @post.comments.each do |comment| %>
             <blockquote>
-              <p><%= comment.body %></p>
+              <p><i class="icon-comment"></i><%= comment.body %></p>
               <small><%= comment.commenter %>
-              <%= link_to 'remove', [comment.post, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
+                <% if can? :destroy, comment %><%= link_to 'remove', [comment.post, comment], method: :delete, data: { confirm: 'Are you sure?' } %><% end %>
               </small>
             </blockquote>
           <% end %>
@@ -45,32 +48,34 @@
       <div class="span2"></div>
 
       <div class="span8">
-        <%= form_for([@post, @post.comments.build]) do |f| %>
+        <% if can? :create, Comment %>
+          <%= form_for([@post, @post.comments.build]) do |f| %>
 
-          <fieldset>
-            <legend>Add a Comment</legend>
+            <fieldset>
+              <legend>Add a Comment</legend>
 
-            <div class="control-group">
-              <label class="control-label"><%= f.label :commenter %></label>
-              <div class="controls">
-                <%= f.text_field :commenter, :class => 'span8' %>
+              <div class="control-group">
+                <label class="control-label"><%= f.label :commenter %></label>
+                <div class="controls">
+                  <%= f.text_field :commenter, :class => 'span8' %>
+                </div>
               </div>
-            </div>
 
-            <div class="control-group">
-              <label class="control-label"><%= f.label :body %></label>
-              <div class="controls">
-                <%= f.text_area :body, :rows => '5', :class => 'span8' %></span>
+              <div class="control-group">
+                <label class="control-label"><%= f.label :body %></label>
+                <div class="controls">
+                  <%= f.text_area :body, :rows => '5', :class => 'span8' %></span>
+                </div>
               </div>
-            </div>
 
-            <div class="control-group">
-              <div class="controls">
-                <%= f.submit 'comment', :class => 'btn btn-primary' %>
-              </div>
-            </div>  
-          </fieldset>
+              <div class="control-group">
+                <div class="controls">
+                  <%= f.submit 'comment', :class => 'btn btn-primary' %>
+                </div>
+              </div>  
+            </fieldset>
 
+          <% end %>
         <% end %>
       </div>
 

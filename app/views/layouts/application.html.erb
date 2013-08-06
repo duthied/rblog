@@ -21,19 +21,5 @@
 
 <%= yield %>
 
-<div class="container">
-  <div class="row">
-    <div class="span2"></div>
-    <div class="span8">
-      <% if user_signed_in? %>
-        <div class="alert alert-info">
-          <span class="muted">Logged in as <%= current_user.email %></span>
-        </div>
-      <% end %>
-    </div>
-    <div class="span2"></div>
-  </div>
-</div>
-
 </body>
 </html>

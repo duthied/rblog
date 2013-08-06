@@ -15,8 +15,12 @@
       <div class="row blog-list-item">
         <div class="span2">
           <p class="text-right">
-            <%= link_to "Edit", edit_post_path(post), class: "btn btn-mini" %>
-            <%= link_to 'Delete', post_path(post.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-mini" %>
+            <% if can? :update, post %>
+              <%= link_to "Edit", edit_post_path(post), class: "btn btn-mini" %>
+            <% end %>
+            <% if can? :destroy, post %>
+              <%= link_to 'Delete', post_path(post.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-mini" %>
+            <% end %>
           </p>
         </div>
 

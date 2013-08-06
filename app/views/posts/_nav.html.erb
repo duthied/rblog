@@ -4,12 +4,28 @@
     <ul class="nav">
       <li class="<%= active == "home" ? "active" : "" %>"><%= link_to "Welcome", controller: "welcome" %></li>
       <li class="<%= active == "index" ? "active" : "" %>"><%= link_to "Blog Home", posts_path %></li>
-      <li class="<%= active == "newpost" ? "active" : "" %>"><%= link_to "Create New Post", new_post_path %></li>
+
+      <% if can? :create, Post %>
+        <li class="<%= active == "newpost" ? "active" : "" %>"><%= link_to "Create New Post", new_post_path %></li>
+      <% end %>
+
       <% if user_signed_in? %>
-        <li class=""><%= link_to "Admin", roles_path %></li>
+        <% if current_user.has_role?('Admin') %>
+          <li class=""><%= link_to "Admin", roles_path %></li>
+        <% end %>
       <% else %>
         <li class=""><%= link_to "Login", new_user_session_path %></li>
       <% end %>
     </ul>
   </div>
+
+  <% if user_signed_in? %>
+    <div class="pull-right" style="text-align:right;">
+      <span class="muted">
+        <%= current_user.email %>&nbsp;|&nbsp;<%= link_to("logout", destroy_user_session_path, :method => :delete) %>
+      </span>
+    </div>
+  <% end %>
+
 </div>
+

@@ -12,4 +12,8 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   # attr_accessible :email, :password, :password_confirmation, :remember_me, :role_ids
 
+  def has_role?(*role_names)
+    self.roles.where(:description => role_names).present?
+  end
+
 end
