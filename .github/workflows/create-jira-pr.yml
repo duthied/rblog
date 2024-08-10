@@ -18,6 +18,8 @@ jobs:
           JIRA_DOMAIN: ${{ secrets.JIRA_DOMAIN }}
           JIRA_USER_EMAIL: ${{ secrets.JIRA_USER_EMAIL }}
         run: |
+          echo "::notice title=Sample output::actor: ${{ github.actor }} labels:${{ github.event.pull_request.labels.*.name }}"
+
           PR_TITLE="${{ github.event.pull_request.title }}"
           PR_URL="${{ github.event.pull_request.html_url }}"
           ISSUE_SUMMARY="New PR created: $PR_TITLE"
