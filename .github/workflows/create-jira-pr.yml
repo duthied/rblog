@@ -1,0 +1,41 @@
+name: Create Jira Ticket on PR
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  create-jira-ticket:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Create Jira Ticket
+        if: github.actor == 'duthied' && contains(github.event.pull_request.labels.*.name, 'severe')
+        env:
+          JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
+          JIRA_DOMAIN: ${{ secrets.JIRA_DOMAIN }}
+          JIRA_USER_EMAIL: ${{ secrets.JIRA_USER_EMAIL }}
+        run: |
+          PR_TITLE="${{ github.event.pull_request.title }}"
+          PR_URL="${{ github.event.pull_request.html_url }}"
+          ISSUE_SUMMARY="New PR created: $PR_TITLE"
+          ISSUE_DESCRIPTION="A new PR has been created by ${{ github.actor }}. \nPR Title: $PR_TITLE \nPR URL: $PR_URL"
+          
+          curl -X POST \
+            -u "${{ secrets.JIRA_USER_EMAIL }}:${{ secrets.JIRA_API_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "fields": {
+                "project": {
+                  "key": "EX"  # Replace with your Jira project key
+                },
+                "summary": "'"$ISSUE_SUMMARY"'",
+                "description": "'"$ISSUE_DESCRIPTION"'",
+                "issuetype": {
+                  "name": "Task"  # Replace with your desired issue type
+                }
+              }
+            }' \
+            "https://${{ secrets.JIRA_DOMAIN }}/rest/api/2/issue/"
