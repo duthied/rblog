@@ -29,7 +29,7 @@ jobs:
             -d '{
               "fields": {
                 "project": {
-                  "key": "PROJECTKEY"  # Replace with your Jira project key
+                  "key": "EX"  # Replace with your Jira project key
                 },
                 "summary": "'"$ISSUE_SUMMARY"'",
                 "description": "'"$ISSUE_DESCRIPTION"'",
