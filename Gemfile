@@ -50,7 +50,7 @@ group :doc do
 end
 
 # bootstrap
-gem 'bootstrap-sass', '~> 2.3.2.0'
+gem 'bootstrap-sass', '~> 3.4.1'
 
 # thin web server
 gem 'thin'
