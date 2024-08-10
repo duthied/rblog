@@ -23,9 +23,6 @@ jobs:
           ISSUE_SUMMARY="New PR created: $PR_TITLE"
           ISSUE_DESCRIPTION="A new PR has been created by ${{ github.actor }}. \nPR Title: $PR_TITLE \nPR URL: $PR_URL"
           
-          echo "ISSUE_SUMMARY: $ISSUE_SUMMARY" 
-          echo "ISSUE_DESCRIPTION: $ISSUE_DESCRIPTION" 
-
           curl -X POST \
             -u "${{ secrets.JIRA_USER_EMAIL }}:${{ secrets.JIRA_API_TOKEN }}" \
             -H "Content-Type: application/json" \
